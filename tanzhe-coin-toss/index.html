@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#72100c">
+  <title>投铜钱 · 听福音｜潭柘古寺投福体验</title>
+  <style>
+    :root{--red:#9f1711;--deep:#4f0906;--gold:#d7a335;--pale:#f1d47e;--ink:#1c100a}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;overflow:hidden;background:#21130d;color:#f5e8c9}
+    body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;-webkit-font-smoothing:antialiased;user-select:none}
+    button{font:inherit}button:focus-visible{outline:3px solid #fff0a7;outline-offset:3px}
+    .app{height:100dvh;min-height:620px;display:grid;grid-template-rows:72px minmax(0,1fr) 126px;overflow:hidden;background:#23140d;isolation:isolate}
+    .grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.12;mix-blend-mode:screen;background-image:repeating-radial-gradient(circle at 15% 20%,rgba(255,255,255,.2) 0 1px,transparent 1px 4px)}
+    header{position:relative;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:10px clamp(14px,4vw,58px);background:linear-gradient(#28160e,#21120c);border-bottom:1px solid rgba(232,188,78,.27);box-shadow:0 8px 25px rgba(15,3,0,.3)}
+    .brand{display:flex;align-items:center;gap:12px}.seal{width:43px;height:43px;display:grid;place-items:center;border:1px solid #d8b14d;box-shadow:inset 0 0 0 3px #2a170e,inset 0 0 0 4px #997625;color:#f0ce6c;font:23px "STKaiti","KaiTi",serif;transform:rotate(-2deg)}
+    .brand p{margin:0 0 2px;color:#aa956b;font-size:8px;letter-spacing:.2em}.brand h1{margin:0;font:500 clamp(18px,2vw,26px) "STKaiti","KaiTi",serif;letter-spacing:.1em}
+    .actions{display:flex;gap:8px}.actions button{height:38px;border:1px solid rgba(223,185,93,.3);border-radius:99px;background:rgba(255,255,255,.03);color:#d7c69c;cursor:pointer}.sound{width:42px}.restart{padding:0 15px;font-size:10px;letter-spacing:.08em}
+    .stage{position:relative;overflow:hidden;touch-action:none;cursor:crosshair;background:radial-gradient(circle at 50% 29%,rgba(255,211,104,.15),transparent 35%),linear-gradient(#35180e 0 12%,#84120e 12% 77%,#5a5144 77%)}
+    .eave{position:absolute;z-index:4;left:12%;right:12%;top:-6px;height:62px;background:repeating-linear-gradient(90deg,#2f2117 0 25px,#90692b 25px 29px);clip-path:polygon(5% 0,95% 0,100% 78%,82% 61%,70% 76%,55% 58%,43% 75%,28% 58%,16% 73%,0 56%);filter:drop-shadow(0 9px 7px rgba(20,5,0,.45))}
+    .leaves{position:absolute;z-index:5;top:-9%;width:33%;height:48%;opacity:.9;filter:drop-shadow(0 7px 7px rgba(0,0,0,.35));background:radial-gradient(ellipse at 24% 18%,#31482a 0 11%,transparent 12%),radial-gradient(ellipse at 55% 31%,#223921 0 14%,transparent 15%),radial-gradient(ellipse at 31% 58%,#3a5330 0 16%,transparent 17%),radial-gradient(ellipse at 77% 19%,#314b2d 0 14%,transparent 15%),radial-gradient(ellipse at 79% 52%,#263e25 0 16%,transparent 17%)}
+    .leaves.left{left:-8%;transform:rotate(-8deg)}.leaves.right{right:-9%;transform:scaleX(-1) rotate(-10deg)}
+    .wall{position:absolute;inset:7% 4% 19%;overflow:hidden;border:6px solid #bd8d29;background:linear-gradient(135deg,#b92418,#850d0a 64%,#a61d14);box-shadow:inset 0 0 0 2px #efd06e,inset 0 0 42px rgba(45,0,0,.5),0 13px 28px rgba(22,3,0,.35)}
+    .wall:before,.wall:after{content:"";position:absolute;z-index:3;left:0;right:0;height:12px;background:repeating-linear-gradient(90deg,#c99b35 0 12px,#f2d269 12px 15px,#895612 15px 27px)}.wall:before{top:0}.wall:after{bottom:0}
+    .fugrid{position:absolute;inset:13px;display:grid;grid-template-columns:repeat(11,1fr);grid-template-rows:repeat(5,1fr);place-items:center;opacity:.42;transform:rotate(-1deg) scale(1.03)}.fugrid span{color:#f0c34e;font:clamp(20px,3vw,44px) "STKaiti","KaiTi",serif}.fugrid span:nth-child(3n){font-size:clamp(15px,2.1vw,30px);transform:rotate(8deg);opacity:.7}.fugrid span:nth-child(4n){transform:rotate(-10deg)}
+    .greatfu{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,215,89,.3);font:500 clamp(170px,30vw,420px)/1 "STKaiti","KaiTi",serif;transform:rotate(-5deg)}
+    .rack{position:absolute;z-index:8;inset:0;pointer-events:none}.bar{position:absolute;left:4%;right:4%;top:20%;height:16px;border-radius:99px;background:linear-gradient(#f0c44d 0 22%,#9d6310 28% 58%,#efc34c 75%);box-shadow:inset 0 0 0 2px rgba(255,238,145,.25),0 7px 11px rgba(57,12,0,.4)}
+    .post{position:absolute;top:19%;bottom:10%;width:15px;border-radius:99px;background:linear-gradient(90deg,#8f5910,#efc34c 48%,#9a6212)}.post.left{left:4.4%}.post.right{right:4.4%}.post:after{content:"";position:absolute;left:50%;bottom:-6px;width:58px;height:10px;border-radius:99px;background:#986013;transform:translateX(-50%)}
+    .targets{position:absolute;z-index:11;left:6%;right:6%;top:20%;height:58%;display:flex;align-items:flex-start;justify-content:space-around;pointer-events:none}.target{--size:100px;position:relative;width:19%;height:100%;display:flex;justify-content:center}.rope{position:absolute;top:0;width:6px;height:clamp(42px,8vh,72px);background:linear-gradient(90deg,#87510c,#efc44e,#936014)}
+    .knot{position:absolute;z-index:5;top:-3px;width:19px;height:19px;background:#b51c12;box-shadow:inset 0 0 0 2px #df6330;transform:rotate(45deg)}
+    .bigcoin{position:absolute;top:clamp(38px,7.5vh,68px);width:min(var(--size),16vw);aspect-ratio:1;border:clamp(3px,.4vw,7px) double #9c6c19;border-radius:50%;background:radial-gradient(circle at 35% 25%,rgba(255,243,164,.65),transparent 10%),radial-gradient(circle,transparent 0 34%,rgba(54,27,4,.5) 35% 36%,transparent 37%),repeating-radial-gradient(circle at 44% 41%,rgba(55,28,3,.16) 0 1px,transparent 1px 4px),linear-gradient(135deg,#ddb249,#87530e 47%,#d19b2d 71%,#70450d);box-shadow:inset 0 0 0 3px #e2b74c,inset 0 0 17px rgba(42,17,0,.6),0 10px 16px rgba(35,5,0,.45);transform-origin:50% -25%}
+    .bigcoin:after{content:"";position:absolute;inset:8%;border:1px solid rgba(63,34,4,.38);border-radius:50%}.word{position:absolute;z-index:2;color:#603a0b;font:700 clamp(10px,1.45vw,21px) "STKaiti","KaiTi",serif;text-shadow:0 1px rgba(248,213,106,.45)}.wt{left:50%;top:10%;transform:translateX(-50%)}.wb{left:50%;bottom:8%;transform:translateX(-50%)}.wl{left:11%;top:50%;transform:translateY(-50%)}.wr{right:11%;top:50%;transform:translateY(-50%)}
+    .bell{position:absolute;z-index:6;left:50%;top:50%;width:20%;height:23%;transform:translate(-50%,-50%);border-radius:50% 50% 35% 35%;background:linear-gradient(90deg,#814408,#f2cd5e 47%,#9e570d);box-shadow:0 2px 5px rgba(42,12,0,.65),inset 0 0 0 1px #f6df8d}.bell:before{content:"";position:absolute;left:38%;top:-20%;width:24%;height:25%;border-radius:50%;background:#704009}.bell:after{content:"";position:absolute;left:-12%;right:-12%;bottom:-4%;height:22%;border-radius:99px;background:#603205;box-shadow:0 2px #dfab37}
+    .tag{position:absolute;top:calc(clamp(38px,7.5vh,68px) + min(var(--size),16vw) + 8px);display:flex;align-items:center;gap:6px;padding:3px 8px 3px 4px;border:1px solid rgba(242,204,96,.5);border-radius:99px;background:rgba(68,8,4,.82);color:#f0ce68;white-space:nowrap}.tag b{width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#ae2115;font:14px "STKaiti",serif}.tag small{font-size:8px;letter-spacing:.07em}
+    .target.hit-bell .bigcoin{animation:swing 1.3s ease-out}.target.hit-bell .bell{animation:ring .65s ease-out 2;filter:brightness(1.5)}.target.hit-coin .bigcoin{animation:thump .75s ease-out}@keyframes swing{20%{transform:rotate(10deg)}45%{transform:rotate(-7deg)}68%{transform:rotate(4deg)}85%{transform:rotate(-2deg)}}@keyframes ring{25%{transform:translate(-50%,-50%) rotate(16deg)}50%{transform:translate(-50%,-50%) rotate(-14deg)}75%{transform:translate(-50%,-50%) rotate(8deg)}}@keyframes thump{25%{transform:rotate(4deg) scale(.97)}58%{transform:rotate(-3deg)}}
+    .floor{position:absolute;z-index:6;inset:76% 0 0;background:repeating-linear-gradient(100deg,transparent 0 18%,rgba(36,25,17,.35) 18% 18.5%),repeating-linear-gradient(0deg,transparent 0 28%,rgba(36,25,17,.3) 28% 28.5%),#62594c}.line{position:absolute;z-index:9;left:21%;right:21%;bottom:8%;height:6px;border-radius:50%;background:#c19d45;opacity:.8}.line span{position:absolute;left:50%;top:-22px;transform:translateX(-50%);font:10px "STKaiti",serif;letter-spacing:.18em;color:#f2d68d}
+    .aim{position:absolute;z-index:18;width:45px;height:45px;transform:translate(-50%,-50%);border:1px solid #ffeaa0;border-radius:50%;box-shadow:0 0 0 5px rgba(78,3,2,.3),0 0 17px rgba(255,222,109,.5);pointer-events:none}.aim:before,.aim:after{content:"";position:absolute;left:50%;top:50%;background:#ffeda7;transform:translate(-50%,-50%)}.aim:before{width:62px;height:1px}.aim:after{width:1px;height:62px}.aim i{position:absolute;inset:14px;border:3px solid #ffeba0;border-radius:50%}.charging .aim{animation:focus .75s ease-in-out infinite alternate}@keyframes focus{to{transform:translate(-50%,-50%) scale(.82);filter:brightness(1.4)}}
+    .flying{position:absolute;z-index:26;left:50%;top:calc(100% - 22px);width:40px;aspect-ratio:1;border:3px solid #633807;border-radius:50%;background:radial-gradient(circle,#442305 0 18%,transparent 19%),radial-gradient(circle,#dbb348 0 58%,#7b4c0e 73%);box-shadow:0 7px 11px rgba(24,3,0,.55);pointer-events:none;animation:fly .92s cubic-bezier(.22,.68,.26,1) both}@keyframes fly{0%{left:50%;top:calc(100% - 22px);transform:translate(-50%,-50%) scale(1.35) rotate(0)}48%{top:calc(var(--fy) - 15%);transform:translate(-50%,-50%) scale(.82) rotate(300deg)}76%{left:var(--fx);top:var(--fy);transform:translate(-50%,-50%) scale(.55) rotate(560deg)}84%{left:var(--fx);top:var(--fy);transform:translate(-50%,-50%) scale(.64) rotate(590deg)}100%{left:var(--fx);top:var(--fy);transform:translate(-50%,-50%) scale(.5) rotate(650deg);opacity:.86}}
+    .guide{position:absolute;z-index:20;left:clamp(14px,4vw,58px);bottom:8%;width:min(325px,33vw);padding:15px 17px;border:1px solid rgba(238,201,97,.42);background:rgba(43,11,5,.88);box-shadow:0 13px 28px rgba(25,3,0,.34);backdrop-filter:blur(9px);pointer-events:none}.guide em{color:#d4a438;font-size:8px;font-style:normal;letter-spacing:.2em}.guide h2{margin:8px 0 6px;font:500 clamp(14px,1.35vw,19px) "STKaiti",serif}.guide p{margin:0;color:#bdaa82;font-size:9px;line-height:1.7}.guide kbd{display:inline-block;margin:0 2px;padding:1px 7px;border:1px solid #ba8e35;border-radius:4px;background:#25120a;color:#f3d47a;font:9px inherit;box-shadow:0 2px 0 #100603}
+    .toast{position:absolute;z-index:30;left:50%;top:12px;min-width:min(450px,84vw);transform:translateX(-50%);display:none;align-items:center;gap:11px;padding:9px 11px;border:1px solid rgba(239,204,105,.55);background:rgba(48,11,5,.94);box-shadow:0 9px 25px rgba(29,3,0,.4);backdrop-filter:blur(10px)}.toast.show{display:flex;animation:down .32s ease both}.toast.bell{background:rgba(91,40,3,.95)}.toast.miss{filter:saturate(.55)}.glyph{width:38px;height:38px;display:grid;place-items:center;flex:0 0 auto;border:1px solid #d8b04d;border-radius:50%;color:#f1d374;font:18px "STKaiti",serif}.toast div{min-width:0;flex:1}.toast strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#efd58a;font:15px "STKaiti",serif}.toast p{margin:2px 0 0;color:#b9a477;font-size:8px}.toast>b{color:#f3d169;font:18px Georgia,serif}@keyframes down{from{opacity:0;transform:translate(-50%,-10px)}}
+    .missburst{position:absolute;z-index:29;width:92px;height:92px;display:grid;place-items:center;transform:translate(-50%,-50%);border:2px solid rgba(241,218,153,.7);border-radius:50%;color:#f6e4b1;font:22px "STKaiti",serif;text-shadow:0 2px 5px #260500;pointer-events:none;animation:missburst .8s ease-out both}.missburst:before,.missburst:after{content:"";position:absolute;inset:13px;border:1px dashed rgba(246,224,161,.65);border-radius:50%}.missburst:after{inset:-18px;border-style:solid;opacity:.45}.miss-shake{animation:missshake .34s ease-out}@keyframes missburst{0%{opacity:0;transform:translate(-50%,-50%) scale(.35)}35%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.45)}}@keyframes missshake{20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}
+    footer{position:relative;z-index:35;display:grid;grid-template-columns:1fr minmax(360px,560px) 1fr;align-items:center;gap:30px;padding:13px clamp(20px,5vw,70px);border-top:1px solid rgba(235,190,79,.28);background:radial-gradient(circle at 50% -70%,rgba(200,138,33,.14),transparent 45%),linear-gradient(#28160d,#1c100a);box-shadow:0 -11px 28px rgba(21,5,1,.3)}
+    .stat label{display:block;color:#9e8b66;font-size:8px;letter-spacing:.2em}.stat strong{display:inline-block;margin-top:3px;color:#e3c363;font:27px Georgia,serif}.leftstat i{margin-left:10px;color:#d9ad3f;font-size:8px;font-style:normal}.rightstat{text-align:right}.rightstat small{color:#75664b;font-size:11px}.dots{display:flex;justify-content:flex-end;gap:4px;margin-top:4px}.dots i{width:11px;aspect-ratio:1;border:1px solid #4b351e;border-radius:50%;background:#20150e}.dots i.full{border-color:#99701f;background:radial-gradient(circle,#21130a 0 22%,#ad7e24 24%)}
+    .control{display:grid;grid-template-columns:1fr 220px;gap:7px 16px;align-items:center}.powerlabel{display:flex;align-items:baseline;gap:7px;color:#9e8b66;font-size:8px;letter-spacing:.12em}.powerlabel b{color:#efd06b;font:14px Georgia,serif}.powerlabel em{margin-left:auto;color:#726348;font-size:7px;font-style:normal}.track{position:relative;height:7px;overflow:hidden;border:1px solid rgba(208,164,56,.25);border-radius:99px;background:#0e0805}.fill{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8b2617 0 32%,#d49222 58%,#ffe587 72%,#ae2c1c);transition:width .02s linear}.track:after{content:"";position:absolute;left:70%;top:-3px;width:2px;height:12px;background:#ffeda0;box-shadow:0 0 7px #ffeda0}
+    .throw{grid-column:2;grid-row:1/span 2;height:88px;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 16px;border:1px solid #c99a34;border-radius:8px;background:linear-gradient(135deg,#78100b,#a31e14 52%,#6c0c09);color:#f3d895;box-shadow:inset 0 0 0 4px rgba(81,5,3,.55),inset 0 0 0 5px rgba(222,170,57,.4),0 7px 17px rgba(18,2,0,.4);cursor:pointer;touch-action:none}.throw:active{transform:translateY(2px) scale(.988)}.throw:disabled{filter:saturate(.25) brightness(.7)}.handcoin{width:45px;aspect-ratio:1;flex:0 0 auto;border:3px double #674009;border-radius:50%;background:radial-gradient(circle,#553005 0 18%,transparent 19%),radial-gradient(circle,#d8ad40,#84510f 72%);box-shadow:inset 0 0 7px rgba(48,19,1,.55),0 4px 7px rgba(26,3,0,.4)}.throw span:last-child{text-align:left}.throw b,.throw small{display:block}.throw b{font:15px "STKaiti",serif;letter-spacing:.07em}.throw small{margin-top:3px;color:rgba(243,218,151,.58);font-size:7px;letter-spacing:.14em}
+    @media(max-width:800px){.app{grid-template-rows:64px minmax(0,1fr) 144px}.seal{width:38px;height:38px;font-size:19px}.brand{gap:8px}.brand p{font-size:6px}.brand h1{font-size:17px}.restart{display:none}.wall{inset:7% 1.5% 17%;border-width:4px}.fugrid{grid-template-columns:repeat(7,1fr)}.fugrid span:nth-child(n+36){display:none}.eave{left:1%;right:1%}.bar{left:1%;right:1%;top:21%;height:10px}.post{top:20.5%;bottom:8%;width:9px}.post.left{left:1.5%}.post.right{right:1.5%}.targets{left:0;right:0;top:21%;justify-content:space-between}.target{width:20%}.bigcoin{top:clamp(34px,7vh,55px);width:min(var(--size),23vw);border-width:3px}.target:nth-child(1) .bigcoin{width:min(var(--size),18vw)}.target:nth-child(2) .bigcoin{width:min(var(--size),19.5vw)}.target:nth-child(3) .bigcoin{width:min(var(--size),21vw)}.target:nth-child(4) .bigcoin{width:min(var(--size),22vw)}.rope{height:clamp(36px,7vh,55px);width:5px}.tag{top:calc(clamp(34px,7vh,55px) + min(var(--size),21vw) + 5px);padding-right:4px}.tag small{display:none}.guide{left:10px;bottom:5%;width:min(240px,72vw);padding:11px 12px}.toast{top:8px;min-width:92vw;padding:7px}.toast strong{font-size:13px}.toast p{max-width:58vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}footer{grid-template-columns:52px 1fr 52px;gap:6px;padding:10px 8px 13px}.stat{min-width:0}.stat label{font-size:7px;letter-spacing:.02em}.stat strong{font-size:17px}.leftstat i,.dots{display:none}.control{grid-template-columns:1fr 178px;gap:6px 8px}.throw{height:96px;padding:0 9px;gap:8px}.throw b{font-size:13px}.handcoin{width:39px}.powerlabel em{display:none}}
+    @media(max-width:430px){.control{grid-template-columns:minmax(70px,1fr) 160px}.throw{gap:6px}.handcoin{width:36px}.sound{width:37px}.word{font-size:9px}.bell{width:22%;height:25%}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="grain" aria-hidden="true"></div>
+    <header>
+      <div class="brand"><span class="seal">潭</span><div><p>潭柘古寺 · 投福体验</p><h1>投铜钱 · 听福音</h1></div></div>
+      <div class="actions"><button class="sound" id="sound" aria-label="关闭声音与音乐">乐♪</button><button class="restart" id="restart">重新开始</button></div>
+    </header>
+    <section class="stage" id="stage" aria-label="移动鼠标或轻触瞄准区域">
+      <div class="leaves left"></div><div class="leaves right"></div><div class="eave"></div>
+      <div class="wall"><div class="fugrid" id="fugrid"></div><div class="greatfu">福</div></div>
+      <div class="rack"><div class="bar"></div><div class="post left"></div><div class="post right"></div></div>
+      <div class="targets" id="targets" aria-label="五枚悬挂铜钱"></div>
+      <div class="floor"></div><div class="line"><span>投掷线</span></div>
+      <div class="aim" id="aim" style="left:50%;top:42%"><i></i></div>
+      <aside class="guide" id="guide"><em>操作方式</em><h2>瞄准铜钱中心的铃铛</h2><p>电脑：鼠标自由瞄准，按住 <kbd>空格</kbd> 蓄力，松开投掷，蓄力时仍可移动准星。<br>触屏：先点画面瞄准，再点一次按钮蓄力、第二次投掷。</p></aside>
+      <div class="toast" id="toast" role="status"><span class="glyph" id="glyph">铃</span><div><strong id="resultTitle"></strong><p id="resultLine"></p></div><b id="gain">+100</b></div>
+    </section>
+    <footer>
+      <div class="stat leftstat"><label>功德分</label><strong id="score">0000</strong><i id="streak"></i></div>
+      <div class="control"><div class="powerlabel"><span>蓄力</span><b id="powerNum">0%</b><em>七成最稳</em></div><div class="track"><i class="fill" id="fill"></i></div><button class="throw" id="throw"><span class="handcoin"></span><span><b id="throwText">点击开始蓄力</b><small id="throwSub">电脑可按住空格</small></span></button></div>
+      <div class="stat rightstat"><label>余钱</label><strong><span id="left">8</span><small> / 8</small></strong><div class="dots" id="dots"></div></div>
+    </footer>
+  </main>
+  <script>
+    (()=>{
+      const targetData=[
+        {name:"安",wish:"平安常在",size:88},
+        {name:"顺",wish:"诸事顺遂",size:106},
+        {name:"和",wish:"家和心安",size:124},
+        {name:"禄",wish:"福禄双至",size:142},
+        {name:"福",wish:"福满圆成",size:160}
+      ];
+      const copy={bell:{title:"清铃纳福",line:"正中铃心，愿你所求皆有回响",score:100,glyph:"铃"},coin:{title:"铜声有应",line:"击中铜钱，福气已被轻轻唤醒",score:35,glyph:"铜"},miss:{title:"心愿在路上",line:"这一枚随风而去，再静心试一次",score:0,glyph:"风"}};
+      const stage=document.querySelector("#stage"),targetsBox=document.querySelector("#targets"),aimEl=document.querySelector("#aim"),guide=document.querySelector("#guide"),toast=document.querySelector("#toast"),throwBtn=document.querySelector("#throw"),fill=document.querySelector("#fill"),powerNum=document.querySelector("#powerNum"),scoreEl=document.querySelector("#score"),leftEl=document.querySelector("#left"),dots=document.querySelector("#dots"),streakEl=document.querySelector("#streak"),soundBtn=document.querySelector("#sound"),restart=document.querySelector("#restart");
+      let aim={x:50,y:42},power=0,charging=false,chargeSource="",timer=null,direction=1,coinsLeft=8,score=0,streak=0,muted=false,flying=false;
+      let musicCtx=null,musicGain=null,musicTimer=null,musicStep=0;
+
+      document.querySelector("#fugrid").innerHTML="<span>福</span>".repeat(55);
+      targetsBox.innerHTML=targetData.map((t,i)=>`<div class="target" data-index="${i}" style="--size:${t.size}px"><div class="knot"></div><div class="rope"></div><div class="bigcoin"><span class="word wt">招</span><span class="word wl">百</span><span class="word wr">福</span><span class="word wb">纳</span><div class="bell"></div></div><div class="tag"><b>${t.name}</b><small>${t.wish}</small></div></div>`).join("");
+      const targetEls=[...document.querySelectorAll(".target")];
+
+      function renderDots(){dots.innerHTML=Array.from({length:8},(_,i)=>`<i class="${i<coinsLeft?"full":""}"></i>`).join("")}
+      function setAim(event){
+        if(flying)return;
+        const r=stage.getBoundingClientRect();
+        aim.x=Math.max(4,Math.min(96,(event.clientX-r.left)/r.width*100));
+        aim.y=Math.max(18,Math.min(72,(event.clientY-r.top)/r.height*100));
+        aimEl.style.left=aim.x+"%";aimEl.style.top=aim.y+"%";
+      }
+      stage.addEventListener("pointermove",e=>{if(e.pointerType==="mouse")setAim(e)});
+      stage.addEventListener("pointerdown",e=>{setAim(e);ensureMusic()});
+
+      function startCharge(source){
+        if(flying||coinsLeft<=0||timer)return;
+        ensureMusic();guide.style.display="none";toast.classList.remove("show");charging=true;chargeSource=source;stage.classList.add("charging");power=8;direction=1;updatePower();
+        timer=setInterval(()=>{if(power>=100)direction=-1;if(power<=5)direction=1;power=Math.max(0,Math.min(100,power+direction*2.4));updatePower()},24);
+      }
+      function updatePower(){
+        fill.style.width=power+"%";powerNum.textContent=Math.round(power)+"%";
+        document.querySelector("#throwText").textContent=charging?(chargeSource==="keyboard"?"松开空格 · 投掷":"再次点击 · 投掷"):"点击开始蓄力";
+        document.querySelector("#throwSub").textContent=charging?(chargeSource==="keyboard"?"鼠标仍可自由瞄准":"可继续轻触画面调整准星"):"电脑可按住空格";
+      }
+      function release(){if(!charging)return;clearInterval(timer);timer=null;charging=false;chargeSource="";stage.classList.remove("charging");throwCoin(power)}
+      throwBtn.addEventListener("click",()=>{if(charging)release();else startCharge("button")});
+      window.addEventListener("keydown",e=>{if(e.code==="Space"&&!e.repeat&&!flying){e.preventDefault();if(!charging)startCharge("keyboard")}});
+      window.addEventListener("keyup",e=>{if(e.code==="Space"&&chargeSource==="keyboard"){e.preventDefault();release()}});
+
+      function throwCoin(p){
+        if(coinsLeft<=0)return;flying=true;aimEl.style.display="none";throwBtn.disabled=true;
+        const sr=stage.getBoundingClientRect(),throwNo=9-coinsLeft,dy=(72-p)*.38,drift=Math.sin(throwNo*2.17)*Math.abs(72-p)*.045;
+        const fx=Math.max(1,Math.min(99,aim.x+drift)),fy=Math.max(5,Math.min(93,aim.y+dy)),px=sr.left+fx/100*sr.width,py=sr.top+fy/100*sr.height;
+        let result="miss",hit=null,nearest=Infinity;
+        targetEls.forEach((el,i)=>{const c=el.querySelector(".bigcoin").getBoundingClientRect(),cx=c.left+c.width/2,cy=c.top+c.height/2,d=Math.hypot(px-cx,py-cy);if(d<nearest){nearest=d;if(d<=Math.max(13,c.width*.105)){result="bell";hit=i}else if(d<=c.width*.47){result="coin";hit=i}else{result="miss";hit=null}}});
+        const disc=document.createElement("div");disc.className="flying";disc.style.setProperty("--fx",fx+"%");disc.style.setProperty("--fy",fy+"%");stage.appendChild(disc);
+        coinsLeft--;leftEl.textContent=coinsLeft;renderDots();
+        setTimeout(()=>impact(result,hit,fx,fy),680);
+        disc.addEventListener("animationend",()=>{disc.remove();flying=false;aimEl.style.display="block";if(coinsLeft>0)throwBtn.disabled=false;power=0;updatePower();if(coinsLeft<=0){document.querySelector("#throwText").textContent="今日铜钱已投完";document.querySelector("#throwSub").textContent="重新开始再试一次"}}, {once:true});
+      }
+      function impact(result,hit,fx,fy){
+        const data=copy[result];if(hit!==null){const el=targetEls[hit];el.classList.add("hit-"+result);setTimeout(()=>el.classList.remove("hit-"+result),1500)}
+        if(!muted&&result==="bell")playBell();if(!muted&&result==="coin")playThud();if(!muted&&result==="miss")playMiss();
+        if(result==="miss"){const mark=document.createElement("div");mark.className="missburst";mark.textContent="落空";mark.style.left=fx+"%";mark.style.top=fy+"%";stage.appendChild(mark);stage.classList.add("miss-shake");setTimeout(()=>{mark.remove();stage.classList.remove("miss-shake")},820)}
+        if(result==="bell")streak++;else streak=0;score+=data.score+(result==="bell"?Math.max(0,streak-1)*20:0);
+        scoreEl.textContent=String(score).padStart(4,"0");streakEl.textContent=streak>1?"清铃连中 × "+streak:"";
+        document.querySelector("#glyph").textContent=data.glyph;document.querySelector("#resultTitle").textContent=(hit===null?"":targetData[hit].wish+" · ")+data.title;document.querySelector("#resultLine").textContent=data.line;document.querySelector("#gain").textContent="+"+(data.score+(result==="bell"?Math.max(0,streak-1)*20:0));toast.className="toast show "+result;
+      }
+      function audio(){const C=window.AudioContext||window.webkitAudioContext;return C?new C():null}
+      function playBell(){const c=audio();if(!c)return;const m=c.createGain();m.gain.setValueAtTime(.0001,c.currentTime);m.gain.exponentialRampToValueAtTime(.25,c.currentTime+.015);m.gain.exponentialRampToValueAtTime(.0001,c.currentTime+1.55);m.connect(c.destination);[1180,1770,2380].forEach((f,i)=>{const o=c.createOscillator(),g=c.createGain();o.type=i?"triangle":"sine";o.frequency.value=f;g.gain.value=[.55,.22,.1][i];o.connect(g).connect(m);o.start();o.stop(c.currentTime+1.6)});setTimeout(()=>c.close(),1800)}
+      function playThud(){const c=audio();if(!c)return;const o=c.createOscillator(),g=c.createGain();o.type="triangle";o.frequency.setValueAtTime(155,c.currentTime);o.frequency.exponentialRampToValueAtTime(68,c.currentTime+.24);g.gain.setValueAtTime(.38,c.currentTime);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+.34);o.connect(g).connect(c.destination);o.start();o.stop(c.currentTime+.36);setTimeout(()=>c.close(),500)}
+      function playMiss(){
+        const c=audio();if(!c)return;const now=c.currentTime,master=c.createGain();master.gain.setValueAtTime(.0001,now);master.gain.exponentialRampToValueAtTime(.24,now+.012);master.gain.exponentialRampToValueAtTime(.0001,now+.62);master.connect(c.destination);
+        const length=Math.floor(c.sampleRate*.5),buffer=c.createBuffer(1,length,c.sampleRate),data=buffer.getChannelData(0);for(let i=0;i<length;i++)data[i]=(Math.random()*2-1)*(1-i/length);const noise=c.createBufferSource(),filter=c.createBiquadFilter();noise.buffer=buffer;filter.type="bandpass";filter.frequency.setValueAtTime(720,now);filter.frequency.exponentialRampToValueAtTime(180,now+.48);noise.connect(filter).connect(master);noise.start(now);
+        const wood=c.createOscillator(),wg=c.createGain();wood.type="square";wood.frequency.setValueAtTime(105,now+.04);wood.frequency.exponentialRampToValueAtTime(52,now+.18);wg.gain.setValueAtTime(.18,now+.04);wg.gain.exponentialRampToValueAtTime(.0001,now+.24);wood.connect(wg).connect(master);wood.start(now+.04);wood.stop(now+.25);setTimeout(()=>c.close(),800)
+      }
+      function ensureMusic(){
+        if(muted||musicCtx)return;musicCtx=audio();if(!musicCtx)return;musicGain=musicCtx.createGain();musicGain.gain.value=.055;musicGain.connect(musicCtx.destination);musicStep=0;
+        const tick=()=>{if(!musicCtx||muted)return;const notes=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,523.25,659.25,783.99,987.77,880,783.99,659.25,587.33],now=musicCtx.currentTime,f=notes[musicStep%notes.length],o=musicCtx.createOscillator(),g=musicCtx.createGain();o.type="triangle";o.frequency.value=f;g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.24,now+.008);g.gain.exponentialRampToValueAtTime(.0001,now+.14);o.connect(g).connect(musicGain);o.start(now);o.stop(now+.15);if(musicStep%4===0){const b=musicCtx.createOscillator(),bg=musicCtx.createGain();b.type="sine";b.frequency.value=f/4;bg.gain.setValueAtTime(.11,now);bg.gain.exponentialRampToValueAtTime(.0001,now+.17);b.connect(bg).connect(musicGain);b.start(now);b.stop(now+.18)}musicStep++};tick();musicTimer=setInterval(tick,180)
+      }
+      function stopMusic(){if(musicTimer)clearInterval(musicTimer);musicTimer=null;if(musicCtx)musicCtx.close();musicCtx=null;musicGain=null}
+      soundBtn.addEventListener("click",()=>{muted=!muted;if(muted)stopMusic();else ensureMusic();soundBtn.textContent=muted?"乐×":"乐♪";soundBtn.setAttribute("aria-label",muted?"开启声音与音乐":"关闭声音与音乐")});
+      function reset(){clearInterval(timer);timer=null;charging=false;chargeSource="";flying=false;coinsLeft=8;score=0;streak=0;power=0;aim={x:50,y:42};stage.classList.remove("charging","miss-shake");aimEl.style.cssText="left:50%;top:42%";guide.style.display="block";toast.className="toast";scoreEl.textContent="0000";leftEl.textContent="8";streakEl.textContent="";throwBtn.disabled=false;document.querySelector("#throwText").textContent="点击开始蓄力";document.querySelector("#throwSub").textContent="电脑可按住空格";updatePower();renderDots();document.querySelectorAll(".flying,.missburst").forEach(el=>el.remove())}
+      restart.addEventListener("click",reset);renderDots();
+    })();
+  </script>
+</body>
+</html>
